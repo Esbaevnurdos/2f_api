@@ -60,15 +60,6 @@ app.put("/users/:id", (req, res) => {
   res.json(users[index]);
 });
 
-// Delete user
-app.delete("/users/:id", (req, res) => {
-  let users = readUsers();
-  users = users.filter((u) => u.id !== req.params.id);
-  writeUsers(users);
-
-  res.json({ message: "User deleted" });
-});
-
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
